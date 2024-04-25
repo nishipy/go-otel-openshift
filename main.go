@@ -13,7 +13,10 @@ import (
 
 func main() {
 	ctx := context.Background()
-	exp, err := otlptracegrpc.New(ctx)
+	exp, err := otlptracegrpc.New(
+		ctx,
+		otlptracegrpc.WithInsecure(),
+	)
 	if err != nil {
 		panic(err)
 	}
