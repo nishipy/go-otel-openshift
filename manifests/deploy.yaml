@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: otel-sample
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otel-sample-deployment
+  namespace: otel-sample
+spec:
+  serviceAccount: otel-collector-sidecar
+  replicas: 1
+  selector:
+    matchLabels:
+      app: otel-sample
+  template:
+    metadata:
+      labels:
+        app: otel-sample
+      annotations:
+        sidecar.opentelemetry.io/inject: "true"
+    spec:
+      containers:
+      - name: otel-sample
+        image: ghcr.io/nishipy/go-otel-sample:latest
+        ports:
+        - containerPort: 8080
