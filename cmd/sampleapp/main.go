@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
 	"go.opentelemetry.io/otel/sdk/trace"
 )
@@ -36,6 +37,7 @@ func main() {
 
 		// Simulate some work
 		time.Sleep(100 * time.Millisecond)
+		span.SetStatus(codes.Ok, "Status is OK.")
 
 		w.Write([]byte("Hello, world!\n"))
 	})
