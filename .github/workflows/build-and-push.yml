@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - mains
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+      - 'manifests/**'
   workflow_dispatch:
 
 jobs:
