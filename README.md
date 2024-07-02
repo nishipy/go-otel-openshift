@@ -1,6 +1,6 @@
 # About
 
-This repo includes a sample go app and manifests for Red Hat build of OpenTelemetry on OpenShift.
+This repo includes a sample go app and manifests, which use Red Hat build of OpenTelemetry on OpenShift,　for my blog post [Red Hat build of OpenTelemetryで遊んでみた](https://blog.nishipy.com/p/otel-openshift/).
 
 Tested and expected versions of OpenShift and Red Hat build of OpenTelemetry is as follows:
 - OpenShift: v4.14.20
